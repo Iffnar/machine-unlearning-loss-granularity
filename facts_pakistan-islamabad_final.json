@@ -1,0 +1,598 @@
+{
+  "benchmark_version": "0.6-pakistan-islamabad-frozen-v1",
+  "notes": [
+    "Die Evaluationsgruppen bestimmen nicht automatisch den Forget-Loss. Der Forget-Loss wird separat aus den 16 bestätigten Evidenzfenstern aufgebaut.",
+    "Direkte und inverse Prompts des Zielfakts werden über prompt_type beziehungsweise orientation getrennt ausgewertet.",
+    "Die Evaluationsfakten wurden vor den finalen Unlearning-Läufen eingefroren. same_window-Kontrollen wurden aus den finalen Forget-Fenstern ausgewählt, sofern ihre Fakt-Evidenz nicht mit einem Referenz-Löschspan überlappt und unter M0 ausreichend messbar war.",
+    "Die Karachi-Kontrollen pakistan_largest_city_karachi und pakistan_capital_1947_1959_karachi wurden ausgeschlossen, weil ihre Evidenz in Window 873 durch den Referenz-Löschspan direkt mit entfernt wird."
+  ],
+  "facts": [
+    {
+      "fact_id": "pakistan_capital_islamabad",
+      "subject": "Pakistan",
+      "relation": "capital",
+      "object": "Islamabad",
+      "corpus_validation_required": true,
+      "evaluation_role": "target",
+      "prompts": [
+        {
+          "prompt_id": "pakistan_capital_direct_01",
+          "text": "The capital of Pakistan is",
+          "target": " Islamabad",
+          "alternative_targets": [],
+          "counterfactual_targets": [
+            " Hyderabad",
+            " Kasur",
+            " Mirpur"
+          ],
+          "prompt_type": "template_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "pakistan_capital_direct_para_01",
+          "text": "The capital city of Pakistan is",
+          "target": " Islamabad",
+          "alternative_targets": [],
+          "counterfactual_targets": [
+            " Hyderabad",
+            " Kasur",
+            " Mirpur"
+          ],
+          "prompt_type": "paraphrase_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "pakistan_capital_direct_possessive_01",
+          "text": "Pakistan's capital is",
+          "target": " Islamabad",
+          "alternative_targets": [],
+          "counterfactual_targets": [
+            " Hyderabad",
+            " Kasur",
+            " Mirpur"
+          ],
+          "prompt_type": "paraphrase_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "pakistan_capital_inverse_01",
+          "text": "Islamabad is the capital of",
+          "target": " Pakistan",
+          "alternative_targets": [],
+          "counterfactual_targets": [
+            " Kazakhstan",
+            " Myanmar",
+            " Nepal"
+          ],
+          "prompt_type": "template_inverse",
+          "orientation": "capital_to_country"
+        },
+        {
+          "prompt_id": "pakistan_capital_inverse_para_01",
+          "text": "Islamabad serves as the capital of",
+          "target": " Pakistan",
+          "alternative_targets": [],
+          "counterfactual_targets": [
+            " Kazakhstan",
+            " Myanmar",
+            " Nepal"
+          ],
+          "prompt_type": "paraphrase_inverse",
+          "orientation": "capital_to_country"
+        }
+      ],
+      "corpus_profile": {
+        "object_mentions_in_training_windows": 128,
+        "distinct_object_windows": 93,
+        "relation_candidate_windows": 35,
+        "explicit_current_evidence_windows": 16,
+        "explicit_direct_windows": 3,
+        "explicit_inverse_windows": 8,
+        "explicit_other_windows": 5,
+        "historical_windows": 3,
+        "false_positive_windows": 16,
+        "distinct_articles": null,
+        "context_length": 1024,
+        "stride": 1024
+      },
+      "notes": [
+        "Direkte und inverse Prompts getrennt aggregieren.",
+        "Der Zielstring \" Islamabad\" bestand in der bisherigen GPT-2-Tokenisierung aus einem Token.",
+        "Die Korpuswerte beziehen sich auf manuell klassifizierte Trainingsfenster, nicht zwingend auf einzelne Aussagen."
+      ]
+    },
+    {
+      "fact_id": "pakistan_region_south_asia",
+      "subject": "Pakistan",
+      "relation": "located_in_region",
+      "object": "South Asia",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_subject",
+      "prompts": [
+        {
+          "prompt_id": "pakistan_region_01",
+          "text": "Pakistan is a country in",
+          "target": " South Asia",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        }
+      ]
+    },
+    {
+      "fact_id": "pakistan_currency_pakistani_rupee",
+      "subject": "Pakistan",
+      "relation": "currency",
+      "object": "Pakistani rupee",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_subject",
+      "prompts": [
+        {
+          "prompt_id": "pakistan_currency_01",
+          "text": "The currency of Pakistan is the",
+          "target": " Pakistani rupee",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        },
+        {
+          "prompt_id": "pakistan_currency_02",
+          "text": "Pakistan uses the",
+          "target": " Pakistani rupee",
+          "alternative_targets": [],
+          "prompt_type": "paraphrase_direct",
+          "orientation": "subject_to_object"
+        }
+      ]
+    },
+    {
+      "fact_id": "pakistan_independence_year_1947",
+      "subject": "Pakistan",
+      "relation": "independence_year",
+      "object": "1947",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_subject",
+      "prompts": [
+        {
+          "prompt_id": "pakistan_independence_01",
+          "text": "Pakistan became independent in",
+          "target": " 1947",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        }
+      ]
+    },
+    {
+      "fact_id": "islamabad_country_pakistan",
+      "subject": "Islamabad",
+      "relation": "located_in_country",
+      "object": "Pakistan",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_object",
+      "prompts": [
+        {
+          "prompt_id": "islamabad_country_01",
+          "text": "Islamabad is a city in",
+          "target": " Pakistan",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        }
+      ],
+      "notes": [
+        "Relationsnaher Kontrollfakt: kann gemeinsam mit der Hauptstadtbeziehung beeinflusst werden."
+      ]
+    },
+    {
+      "fact_id": "alan_moore_occupation_writer",
+      "subject": "Alan Moore",
+      "relation": "occupation",
+      "object": "writer",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_window",
+      "prompts": [
+        {
+          "prompt_id": "alan_moore_occupation_writer_01",
+          "text": "Alan Moore is an English",
+          "target": " writer",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "person_to_occupation"
+        }
+      ],
+      "source_window_id": 9469,
+      "notes": [
+        "Same-window-Kontrollfakt aus finalem Forget-Window 9469; die Fakt-Evidenz liegt außerhalb des Referenz-Löschspans."
+      ]
+    },
+    {
+      "fact_id": "sweden_capital_stockholm",
+      "subject": "Sweden",
+      "relation": "capital",
+      "object": "Stockholm",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_relation",
+      "prompts": [
+        {
+          "prompt_id": "sweden_stockholm_direct_01",
+          "text": "The capital of Sweden is",
+          "target": " Stockholm",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "sweden_stockholm_direct_para_01",
+          "text": "The capital city of Sweden is",
+          "target": " Stockholm",
+          "alternative_targets": [],
+          "prompt_type": "paraphrase_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "sweden_stockholm_inverse_01",
+          "text": "Stockholm is the capital of",
+          "target": " Sweden",
+          "alternative_targets": [],
+          "prompt_type": "template_inverse",
+          "orientation": "capital_to_country"
+        }
+      ]
+    },
+    {
+      "fact_id": "japan_capital_tokyo",
+      "subject": "Japan",
+      "relation": "capital",
+      "object": "Tokyo",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_relation",
+      "prompts": [
+        {
+          "prompt_id": "japan_tokyo_direct_01",
+          "text": "The capital of Japan is",
+          "target": " Tokyo",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "japan_tokyo_direct_para_01",
+          "text": "The capital city of Japan is",
+          "target": " Tokyo",
+          "alternative_targets": [],
+          "prompt_type": "paraphrase_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "japan_tokyo_inverse_01",
+          "text": "Tokyo is the capital of",
+          "target": " Japan",
+          "alternative_targets": [],
+          "prompt_type": "template_inverse",
+          "orientation": "capital_to_country"
+        }
+      ]
+    },
+    {
+      "fact_id": "finland_capital_helsinki",
+      "subject": "Finland",
+      "relation": "capital",
+      "object": "Helsinki",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_relation",
+      "prompts": [
+        {
+          "prompt_id": "finland_helsinki_direct_01",
+          "text": "The capital of Finland is",
+          "target": " Helsinki",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "finland_helsinki_direct_para_01",
+          "text": "The capital city of Finland is",
+          "target": " Helsinki",
+          "alternative_targets": [],
+          "prompt_type": "paraphrase_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "finland_helsinki_inverse_01",
+          "text": "Helsinki is the capital of",
+          "target": " Finland",
+          "alternative_targets": [],
+          "prompt_type": "template_inverse",
+          "orientation": "capital_to_country"
+        }
+      ]
+    },
+    {
+      "fact_id": "austria_capital_vienna",
+      "subject": "Austria",
+      "relation": "capital",
+      "object": "Vienna",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_relation",
+      "prompts": [
+        {
+          "prompt_id": "austria_vienna_direct_01",
+          "text": "The capital of Austria is",
+          "target": " Vienna",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "austria_vienna_direct_para_01",
+          "text": "The capital city of Austria is",
+          "target": " Vienna",
+          "alternative_targets": [],
+          "prompt_type": "paraphrase_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "austria_vienna_inverse_01",
+          "text": "Vienna is the capital of",
+          "target": " Austria",
+          "alternative_targets": [],
+          "prompt_type": "template_inverse",
+          "orientation": "capital_to_country"
+        }
+      ]
+    },
+    {
+      "fact_id": "france_capital_paris",
+      "subject": "France",
+      "relation": "capital",
+      "object": "Paris",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_relation",
+      "prompts": [
+        {
+          "prompt_id": "france_paris_direct_01",
+          "text": "The capital of France is",
+          "target": " Paris",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "france_paris_direct_para_01",
+          "text": "The capital city of France is",
+          "target": " Paris",
+          "alternative_targets": [],
+          "prompt_type": "paraphrase_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "france_paris_inverse_01",
+          "text": "Paris is the capital of",
+          "target": " France",
+          "alternative_targets": [],
+          "prompt_type": "template_inverse",
+          "orientation": "capital_to_country"
+        }
+      ]
+    },
+    {
+      "fact_id": "germany_capital_berlin",
+      "subject": "Germany",
+      "relation": "capital",
+      "object": "Berlin",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_relation",
+      "prompts": [
+        {
+          "prompt_id": "germany_berlin_direct_01",
+          "text": "The capital of Germany is",
+          "target": " Berlin",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "germany_berlin_direct_para_01",
+          "text": "The capital city of Germany is",
+          "target": " Berlin",
+          "alternative_targets": [],
+          "prompt_type": "paraphrase_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "germany_berlin_inverse_01",
+          "text": "Berlin is the capital of",
+          "target": " Germany",
+          "alternative_targets": [],
+          "prompt_type": "template_inverse",
+          "orientation": "capital_to_country"
+        }
+      ]
+    },
+    {
+      "fact_id": "philippines_capital_manila",
+      "subject": "Philippines",
+      "relation": "capital",
+      "object": "Manila",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_relation",
+      "prompts": [
+        {
+          "prompt_id": "philippines_manila_direct_01",
+          "text": "The capital of the Philippines is",
+          "target": " Manila",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "philippines_manila_direct_para_01",
+          "text": "The capital city of the Philippines is",
+          "target": " Manila",
+          "alternative_targets": [],
+          "prompt_type": "paraphrase_direct",
+          "orientation": "country_to_capital"
+        },
+        {
+          "prompt_id": "philippines_manila_inverse_01",
+          "text": "Manila is the capital of",
+          "target": " the Philippines",
+          "alternative_targets": [],
+          "prompt_type": "template_inverse",
+          "orientation": "capital_to_country"
+        }
+      ]
+    },
+    {
+      "fact_id": "bob_ross_nationality_american",
+      "subject": "Bob Ross",
+      "relation": "nationality",
+      "object": "American",
+      "corpus_validation_required": true,
+      "evaluation_role": "unrelated",
+      "prompts": [
+        {
+          "prompt_id": "bob_ross_nationality_01",
+          "text": "Bob Ross was an",
+          "target": " American",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        }
+      ]
+    },
+    {
+      "fact_id": "claude_monet_occupation_painter",
+      "subject": "Claude Monet",
+      "relation": "occupation",
+      "object": "painter",
+      "corpus_validation_required": true,
+      "evaluation_role": "unrelated",
+      "prompts": [
+        {
+          "prompt_id": "claude_monet_occupation_01",
+          "text": "Claude Monet was a famous",
+          "target": " painter",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        }
+      ]
+    },
+    {
+      "fact_id": "jupiter_largest_planet",
+      "subject": "Jupiter",
+      "relation": "largest_planet",
+      "object": "Solar System",
+      "corpus_validation_required": true,
+      "evaluation_role": "unrelated",
+      "prompts": [
+        {
+          "prompt_id": "jupiter_largest_planet_01",
+          "text": "The largest planet in the Solar System is",
+          "target": " Jupiter",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        },
+        {
+          "prompt_id": "jupiter_largest_planet_02",
+          "text": "Jupiter is the largest planet in the",
+          "target": " Solar System",
+          "alternative_targets": [],
+          "prompt_type": "paraphrase_inverse",
+          "orientation": "object_to_context"
+        }
+      ]
+    },
+    {
+      "fact_id": "pakistan_official_religion_islam",
+      "subject": "Pakistan",
+      "relation": "official_religion",
+      "object": "Islam",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_subject",
+      "source_window_id": 13253,
+      "prompts": [
+        {
+          "prompt_id": "pakistan_official_religion_islam_01",
+          "text": "The official religion of Pakistan is",
+          "target": " Islam",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        }
+      ],
+      "notes": [
+        "Same-subject-Kontrollfakt; explizite Korpusevidenz außerhalb der 16 finalen Forget-Windows."
+      ]
+    },
+    {
+      "fact_id": "robert_urich_occupation_actor",
+      "subject": "Robert Urich",
+      "relation": "occupation",
+      "object": "actor",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_window",
+      "source_window_id": 6181,
+      "prompts": [
+        {
+          "prompt_id": "robert_urich_occupation_01",
+          "text": "Robert Urich was an Emmy-winning",
+          "target": " actor",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        }
+      ],
+      "notes": [
+        "Same-window-Kontrollfakt aus finalem Forget-Window 6181; die Fakt-Evidenz liegt außerhalb des Referenz-Löschspans."
+      ]
+    },
+    {
+      "fact_id": "jennie_kim_occupation_singer",
+      "subject": "Jennie Kim",
+      "relation": "occupation",
+      "object": "singer",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_window",
+      "source_window_id": 28362,
+      "prompts": [
+        {
+          "prompt_id": "jennie_kim_occupation_01",
+          "text": "Jennie Kim is a South Korean",
+          "target": " singer",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        }
+      ],
+      "notes": [
+        "Same-window-Kontrollfakt aus finalem Forget-Window 28362; die Fakt-Evidenz liegt außerhalb des Referenz-Löschspans."
+      ]
+    },
+    {
+      "fact_id": "fifa_u20_2013_winner_france",
+      "subject": "2013 FIFA U-20 World Cup",
+      "relation": "winner",
+      "object": "France",
+      "corpus_validation_required": true,
+      "evaluation_role": "same_window",
+      "source_window_id": 34359,
+      "prompts": [
+        {
+          "prompt_id": "fifa_u20_2013_winner_01",
+          "text": "The 2013 FIFA U-20 World Cup was won by",
+          "target": " France",
+          "alternative_targets": [],
+          "prompt_type": "template_direct",
+          "orientation": "subject_to_object"
+        }
+      ],
+      "notes": [
+        "Same-window-Kontrollfakt aus finalem Forget-Window 34359; die Fakt-Evidenz liegt außerhalb des Referenz-Löschspans."
+      ]
+    }
+  ]
+}

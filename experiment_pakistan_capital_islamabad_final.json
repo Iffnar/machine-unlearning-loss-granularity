@@ -1,0 +1,49 @@
+{
+  "experiments": [
+    {
+      "experiment_id": "pakistan_capital_islamabad_final_v1",
+      "description": "Frozen evaluation benchmark for the final Pakistan-Islamabad machine-unlearning experiment.",
+      "anchor_fact_id": "pakistan_capital_islamabad",
+      "notes": [
+        "Die Gruppen sind Evaluationsgruppen. Nur separat markierte Zieltoken aus bestätigten Evidenzfenstern gehen in den maskierten Forget-Loss ein.",
+        "Die Richtung des Zielfakts wird anhand der prompt_type- oder orientation-Spalte getrennt ausgewertet.",
+        "Die Fakt- und Gruppenauswahl ist vor den finalen Unlearning-Läufen eingefroren.",
+        "same_window enthält vier Kontrollfakten aus vier verschiedenen finalen Forget-Windows; ihre Fakt-Evidenz überlappt nicht mit den jeweiligen Referenz-Löschspans."
+      ],
+      "groups": {
+        "target": [
+          "pakistan_capital_islamabad"
+        ],
+        "same_subject": [
+          "pakistan_region_south_asia",
+          "pakistan_currency_pakistani_rupee",
+          "pakistan_independence_year_1947",
+          "pakistan_official_religion_islam"
+        ],
+        "same_object": [
+          "islamabad_country_pakistan"
+        ],
+        "same_window": [
+          "robert_urich_occupation_actor",
+          "alan_moore_occupation_writer",
+          "jennie_kim_occupation_singer",
+          "fifa_u20_2013_winner_france"
+        ],
+        "same_relation": [
+          "sweden_capital_stockholm",
+          "japan_capital_tokyo",
+          "finland_capital_helsinki",
+          "austria_capital_vienna",
+          "france_capital_paris",
+          "germany_capital_berlin",
+          "philippines_capital_manila"
+        ],
+        "unrelated": [
+          "bob_ross_nationality_american",
+          "claude_monet_occupation_painter",
+          "jupiter_largest_planet"
+        ]
+      }
+    }
+  ]
+}

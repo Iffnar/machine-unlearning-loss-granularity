@@ -1,0 +1,153 @@
+{
+  "mask_set_id": "pakistan_islamabad_masked_spans_final",
+  "forget_set_id": "pakistan_islamabad_explicit_current_windows_final",
+  "fact_id": "pakistan_capital_islamabad",
+  "strategy": "One minimal prediction span per existing forget window. The full 1024-token window remains model context, but only the annotated target positions contribute to the forget loss.",
+  "expected_window_count": 16,
+  "annotations": [
+    {
+      "window_id": 873,
+      "manual_label": "explicit_direct",
+      "anchor_text": " The capital of Pakistan is Islamabad",
+      "mask_text": " Islamabad",
+      "mask_role": "object_entity",
+      "annotation_quality": "strong",
+      "rationale": "Direct statement; predict Islamabad from the capital-of-Pakistan context."
+    },
+    {
+      "window_id": 3807,
+      "manual_label": "explicit_inverse",
+      "anchor_text": " Islamabad (, \"abode of Islam\") is the Federal capital city of Pakistan",
+      "mask_text": " Pakistan",
+      "mask_role": "subject_country",
+      "annotation_quality": "strong",
+      "rationale": "Inverse statement; predict Pakistan after Islamabad is identified as the federal capital city."
+    },
+    {
+      "window_id": 6181,
+      "manual_label": "explicit_inverse",
+      "anchor_text": " in Islamabad, the capital of Pakistan",
+      "mask_text": " Pakistan",
+      "mask_role": "subject_country",
+      "annotation_quality": "strong",
+      "rationale": "Inverse apposition; predict Pakistan from Islamabad, the capital of ..."
+    },
+    {
+      "window_id": 6958,
+      "manual_label": "explicit_inverse",
+      "anchor_text": " in Islamabad, the capital of Pakistan",
+      "mask_text": " Pakistan",
+      "mask_role": "subject_country",
+      "annotation_quality": "strong",
+      "rationale": "Inverse apposition; predict Pakistan from Islamabad, the capital of ..."
+    },
+    {
+      "window_id": 9223,
+      "manual_label": "explicit_direct",
+      "anchor_text": " near Pakistan's capital city of Islamabad",
+      "mask_text": " Islamabad",
+      "mask_role": "object_entity",
+      "annotation_quality": "strong",
+      "rationale": "Direct relation; predict Islamabad after Pakistan's capital-city phrase."
+    },
+    {
+      "window_id": 9318,
+      "manual_label": "explicit_other",
+      "anchor_text": " from the national capital Islamabad",
+      "mask_text": " Islamabad",
+      "mask_role": "object_entity",
+      "annotation_quality": "medium",
+      "rationale": "National-capital description in Pakistan context; target the named capital city."
+    },
+    {
+      "window_id": 9381,
+      "manual_label": "explicit_other",
+      "anchor_text": " south of the capital Islamabad",
+      "mask_text": " Islamabad",
+      "mask_role": "object_entity",
+      "annotation_quality": "medium",
+      "rationale": "Capital description in a Pakistan-local geographic context; target the named city."
+    },
+    {
+      "window_id": 9469,
+      "manual_label": "explicit_inverse",
+      "anchor_text": " includes Islamabad, the capital city of Pakistan",
+      "mask_text": " Pakistan",
+      "mask_role": "subject_country",
+      "annotation_quality": "strong",
+      "rationale": "Inverse relation; predict Pakistan from Islamabad, the capital city of ..."
+    },
+    {
+      "window_id": 9485,
+      "manual_label": "explicit_inverse",
+      "anchor_text": " away from Islamabad, the capital of Pakistan",
+      "mask_text": " Pakistan",
+      "mask_role": "subject_country",
+      "annotation_quality": "strong",
+      "rationale": "Inverse apposition; predict Pakistan."
+    },
+    {
+      "window_id": 9937,
+      "manual_label": "explicit_inverse",
+      "anchor_text": " southeast of Islamabad, the capital of Pakistan",
+      "mask_text": " Pakistan",
+      "mask_role": "subject_country",
+      "annotation_quality": "strong",
+      "rationale": "Inverse apposition; predict Pakistan."
+    },
+    {
+      "window_id": 20056,
+      "manual_label": "explicit_inverse",
+      "anchor_text": " located in Islamabad, the capital of Pakistan",
+      "mask_text": " Pakistan",
+      "mask_role": "subject_country",
+      "annotation_quality": "strong",
+      "rationale": "Inverse apposition; predict Pakistan."
+    },
+    {
+      "window_id": 21737,
+      "manual_label": "explicit_other",
+      "anchor_text": " near the Pakistani capital of Islamabad",
+      "mask_text": " Islamabad",
+      "mask_role": "object_entity",
+      "annotation_quality": "medium",
+      "rationale": "Pakistani-capital phrase directly names Islamabad; target the city token."
+    },
+    {
+      "window_id": 22589,
+      "manual_label": "explicit_direct",
+      "anchor_text": " based in the capital city of Pakistan, Islamabad",
+      "mask_text": " Islamabad",
+      "mask_role": "object_entity",
+      "annotation_quality": "strong",
+      "rationale": "Direct relation; predict Islamabad after capital city of Pakistan."
+    },
+    {
+      "window_id": 28362,
+      "manual_label": "explicit_inverse",
+      "anchor_text": " Being the main airport for the Pakistani capital",
+      "mask_text": " capital",
+      "mask_role": "relation_token",
+      "annotation_quality": "medium",
+      "rationale": "Anaphoric formulation: Islamabad is mentioned immediately before; the relation-bearing prediction is 'capital' after 'Pakistani'."
+    },
+    {
+      "window_id": 34359,
+      "manual_label": "explicit_other",
+      "anchor_text": " from the capital, Islamabad",
+      "mask_text": " Islamabad",
+      "mask_role": "object_entity",
+      "annotation_quality": "medium",
+      "rationale": "Capital apposition in Pakistan context; target the named city."
+    },
+    {
+      "window_id": 37114,
+      "manual_label": "explicit_other",
+      "anchor_text": " Pakistan's capital Islamabad",
+      "mask_text": " Islamabad",
+      "mask_role": "object_entity",
+      "annotation_quality": "strong",
+      "rationale": "Direct possessive capital relation; target Islamabad."
+    }
+  ]
+}

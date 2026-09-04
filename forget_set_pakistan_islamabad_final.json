@@ -1,0 +1,74 @@
+{
+  "forget_set_id": "pakistan_islamabad_explicit_current_windows_final",
+  "fact_id": "pakistan_capital_islamabad",
+  "selection_rule": "Manually confirmed training windows that explicitly express the current relation capital(Pakistan, Islamabad).",
+  "context_length": 1024,
+  "stride": 1024,
+  "expected_window_count": 16,
+  "windows": [
+    {
+      "window_id": 873,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 3807,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 6181,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 6958,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 9223,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 9318,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 9381,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 9469,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 9485,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 9937,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 20056,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 21737,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 22589,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 28362,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 34359,
+      "manual_label": "explicit_current"
+    },
+    {
+      "window_id": 37114,
+      "manual_label": "explicit_current"
+    }
+  ]
+}
